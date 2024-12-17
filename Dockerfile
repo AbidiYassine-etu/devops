@@ -1,12 +1,27 @@
 FROM centos:latest
-LABEL author = abidiyassine@outlook.com
-RUN yum install -y httpd \
-zip\
-unzip 
+
+LABEL author="abidiyassine@outlook.com"
+
+# Install necessary packages
+RUN yum install -y httpd zip unzip
+
+# Copy the photogenic.zip file to the container
 COPY photogenic.zip /var/www/html/
+
+# Set the working directory to /var/www/html
 WORKDIR /var/www/html
-RUN unzip photogenic.zip 
+
+# Unzip the photogenic.zip file
+RUN unzip photogenic.zip
+
+# Copy all contents from the 'photogenic' directory to the current directory
 RUN cp -rvf photogenic/* .
-RUN rm -rf photogenic photogenic.zip 
-CMD [ "/usr/sbin/httpd", "-D" , "FOREGROUND" ]
+
+# Clean up unnecessary files
+RUN rm -rf photogenic photogenic.zip
+
+# Start the HTTP server
+CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
+
+# Expose ports
 EXPOSE 80 22
