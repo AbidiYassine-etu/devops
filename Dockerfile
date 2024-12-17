@@ -1,11 +1,12 @@
-FROM centos:latest
+FROM ubuntu:latest
 
 LABEL author="abidiyassine@outlook.com"
 
 # Install necessary packages
-RUN yum install httpd
-RUN yum install zip
-RUN yum install unzip
+RUN apt-get update && apt-get install -y \
+    apache2 \
+    zip \
+    unzip
 
 # Copy the photogenic.zip file to the container
 COPY photogenic.zip /var/www/html/
@@ -23,7 +24,7 @@ RUN cp -rvf photogenic/* .
 RUN rm -rf photogenic photogenic.zip
 
 # Start the HTTP server
-CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
+CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
 
 # Expose ports
 EXPOSE 80 22
