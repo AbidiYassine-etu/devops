@@ -2,9 +2,6 @@ FROM centos:latest
 
 LABEL author="abidiyassine@outlook.com"
 
-# Install necessary packages
-RUN yum install -y httpd zip unzip
-
 # Copy the photogenic.zip file to the container
 COPY photogenic.zip /var/www/html/
 
