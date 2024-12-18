@@ -14,7 +14,6 @@ COPY photogenic.zip /var/www/html/
 # Set the working directory to /var/www/html
 WORKDIR /var/www/html
 
-# Unzip the photogenic.zip file
 RUN unzip photogenic.zip
 
 # Copy all contents from the 'photogenic' directory to the current directory
