@@ -1,7 +1,7 @@
 - hosts: all
   become: true
   environment:
-    KUBECONFIG: /home/ubuntu/.kube/config  # Adjust the path if necessary
+    KUBECONFIG: /home/ubuntu/.kube/config  # Adjust the path if necessa
   tasks: 
      - name: delete old deployment
        command: kubectl delete -f /home/ubuntu/Deployment.yml
