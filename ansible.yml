@@ -4,10 +4,10 @@
     KUBECONFIG: /home/ubuntu/.kube/config  # Adjusthe path if necessa
   tasks: 
      - name: delete old deployment
-       command: kubectl delete -f /home/ubuntu/projet/Deployment.yml
+       command: kubectl delete -f /home/ubuntu/Deployment.yml
      - name: delete old service
-       command: kubectl delete -f /home/ubuntu/projet/Service.yml
+       command: kubectl delete -f /home/ubuntu/Service.yml
      - name: create new deployment
-       command: kubectl apply -f /home/ubuntu/projet/Deployment.yml
+       command: kubectl apply -f /home/ubuntu/Deployment.yml
      - name: create new service
-       command: kubectl apply -f /home/ubuntu/projet/Service.yml
+       command: kubectl apply -f /home/ubuntu/Service.yml
