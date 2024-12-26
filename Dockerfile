@@ -1,4 +1,4 @@
-# Step 1: Build the React app
+# Step 1: Build the React 
 FROM node:16 as build
 WORKDIR /app
 COPY package.json ./
